@@ -26,10 +26,26 @@ class Linked_list:
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
-
+    def insert_middle(self,data,pos):
+        if self.head is None:
+            self.head = Node(data)
+            return
+        
+        n = self.head
+        while n.next is not None:
+            if n.data  == pos:
+                new_node = Node(data)
+                new_node.next = n.next
+                n.next = new_node
+                return
+            n = n.next
+        print("Position not found")
+            
 LL = Linked_list()
-
 LL.insert(23)
 LL.insert(44)
 LL.insert_begin(77)
+LL.travel()
+print("\n")
+LL.insert_middle(100,44)
 LL.travel()
