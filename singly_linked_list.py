@@ -22,9 +22,14 @@ class Linked_list:
         while n is not None:
             print(n.data,"-->",end=" ")
             n = n.next
+    def insert_begin(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
 
 LL = Linked_list()
 
 LL.insert(23)
 LL.insert(44)
+LL.insert_begin(77)
 LL.travel()
