@@ -42,10 +42,7 @@ class Linked_list:
         print("Position not found")
             
 LL = Linked_list()
-LL.insert(23)
-LL.insert(44)
-LL.insert_begin(77)
-LL.travel()
-print("\n")
+LL.insert_begin(44)
+LL.insert(55)
 LL.insert_middle(100,44)
 LL.travel()
