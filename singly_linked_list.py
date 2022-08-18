@@ -40,9 +40,42 @@ class Linked_list:
                 return
             n = n.next
         print("Position not found")
-            
+    def delete(self,data):
+        if self.head is None:
+            print("List is empty")
+            return
+        n = self.head
+        while n.next is  not None:
+            if n.next.data == data:
+                n.next = n.next.next
+                return
+            n = n.next
+    def delete_begin(self):
+        if self.head is None:
+            print("List is empty")
+            return
+        self.head = self.head.next
+        if self.head is None:
+            print("List is empty")
+            return
+    def delete_end(self):
+        if self.head is None:
+            print("List is empty")
+            return
+        n = self.head
+        while n.next.next is not None:
+            n = n.next
+        n.next = None
+        
+
+    
 LL = Linked_list()
 LL.insert_begin(44)
 LL.insert(55)
 LL.insert_middle(100,44)
+LL.travel()
+print("\n")
+LL.delete_begin()
+#LL.delete(100)
+#LL.delete_end()
 LL.travel()
