@@ -12,7 +12,7 @@ class Double:
         self.head = None
 
     def travel(self):
-        print("Normal traversal")
+        #print("Normal traversal")
         n = self.head
         if n is None:
             print("List is empty")
@@ -50,6 +50,53 @@ class Double:
                 n = n.next
             n.next = new_node
             new_node.prev = n
+    def add_after(self,data,x):
+        if self.head is None:
+            print("List is empty")
+        else:
+            n = self.head
+            
+            while n is not None:
+                if x==n.data:
+                    break
+                n = n.next
+            if n is None:
+                print(x,"not found")
+                return
+            else:
+                new_node = Node(data)
+                new_node.prev = n
+                new_node.next = n.next
+                if n.next is not None:
+                    n.next.prev = new_node
+                n.next = new_node
+    def add_before(self,data,x):
+         if self.head is None:
+            print("List is empty")
+         else:
+            n = self.head 
+            while n is not None:
+                if x==n.data:
+                    break
+                n = n.next
+            if n is None:
+                print(x,"not found")
+                return
+            else:
+                new_node = Node(data)
+                new_node.next = n
+                new_node.prev = n.prev
+                if n.prev is not None:
+                    n.prev.next = new_node
+                else:
+                    self.head = new_node
+                n.prev = new_node
+                
+
+
+
+
+
 
 
 dl = Double()
@@ -58,4 +105,8 @@ dl.add_begin(20)
 dl.add_end(30)
 dl.add_end(40)
 dl.travel()
-dl.reverse_travel()
+print("\n")
+dl.add_before(100,88)
+dl.add_after(99,40)
+dl.travel()
+#dl.reverse_travel()
